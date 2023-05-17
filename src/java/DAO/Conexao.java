@@ -28,7 +28,7 @@ public class Conexao {
         return emf;
     }
     
-    public void closeConexao() {
+    public static void closeConexao() {
         if(emf.isOpen()) {
             
         }
