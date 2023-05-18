@@ -4,8 +4,7 @@
     Author     : Fatec
 --%>
 
-<%@page import="DAO.AlunoDAO"%>
-<%@page import="DAO.Aluno"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,13 +25,13 @@
             <div class="row">
               <div class="col-12">
                 <p>Nome:</p>
-                <input type="text" name="nome" class="form-control">
+                <input type="text" name="nome" id="nome" class="form-control">
               </div>
             </div>
             <div class="row">
               <div class="col-12">
                 <p>Matricula:</p>
-                <input type="number" name="matricula" class="form-control">
+                <input type="number" name="matricula" id="matricula" class="form-control">
               </div>
             </div>
             <div class="row">

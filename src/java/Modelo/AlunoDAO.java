@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package Modelo;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -14,7 +14,7 @@ import javax.persistence.EntityManagerFactory;
  * @author Fatec
  */
 public class AlunoDAO {
-    EntityManager em;
+  EntityManager em;
     
     public AlunoDAO() throws Exception {
         EntityManagerFactory emf;
@@ -32,10 +32,12 @@ public class AlunoDAO {
             throw e;
         } finally {
             em.close();
+            
         }
+        
     }
-    
-    public List<Aluno> lista() throws Exception {
+
+    public List<Aluno> listar() throws Exception {
         return em.createNamedQuery("Aluno.findAll").getResultList();
     }
     
@@ -65,8 +67,11 @@ public class AlunoDAO {
             em.close();
         }
     }
-    
+
     public void fechaEmf() {
         Conexao.closeConexao();
     }
+    
+
+    
 }

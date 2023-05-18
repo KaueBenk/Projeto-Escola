@@ -4,8 +4,10 @@
     Author     : Fatec
 --%>
 
-<%@page import="DAO.AlunoDAO"%>
-<%@page import="DAO.Aluno"%>
+
+<%@page import="Modelo.Aluno"%>
+<%@page import="Modelo.AlunoDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package Modelo;
 
 import javax.persistence.Persistence;
 import javax.persistence.EntityManagerFactory;
@@ -23,7 +23,7 @@ public class Conexao {
 
     public static EntityManagerFactory getConexao() throws Exception {
         if ((emf == null)|| (!emf.isOpen())){
-            emf = Persistence.createEntityManagerFactory("EscolaPU");
+            emf = Persistence.createEntityManagerFactory("Escola2PU");
         }
         return emf;
     }

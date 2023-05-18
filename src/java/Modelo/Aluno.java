@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package Modelo;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -15,73 +15,63 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Fatec
  */
 @Entity
-@Table(name = "tbl_aluno")
-@XmlRootElement
+@Table(name = "aluno")
 @NamedQueries({
-    @NamedQuery(name = "TblAluno.findAll", query = "SELECT t FROM TblAluno t")
-    , @NamedQuery(name = "TblAluno.findByMatricula", query = "SELECT t FROM TblAluno t WHERE t.matricula = :matricula")
-    , @NamedQuery(name = "TblAluno.findByNome", query = "SELECT t FROM TblAluno t WHERE t.nome = :nome")
-    , @NamedQuery(name = "TblAluno.findByDisciplina", query = "SELECT t FROM TblAluno t WHERE t.disciplina = :disciplina")
-    , @NamedQuery(name = "TblAluno.findBySituacao", query = "SELECT t FROM TblAluno t WHERE t.situacao = :situacao")})
+    @NamedQuery(name = "Aluno.findAll", query = "SELECT a FROM Aluno a")})
 public class Aluno implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "matricula")
-    private Integer matricula;
+    private int matricula;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "nome")
     private String nome;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
     @Column(name = "disciplina")
     private String disciplina;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 10)
     @Column(name = "situacao")
     private String situacao;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
 
     public Aluno() {
     }
 
-    public Aluno(Integer matricula) {
-        this.matricula = matricula;
+    public Aluno(Integer id) {
+        this.id = id;
     }
 
-    public Aluno(Integer matricula, String nome, String disciplina, String situacao) {
+    public Aluno(Integer id, int matricula, String nome, String disciplina, String situacao) {
+        this.id = id;
         this.matricula = matricula;
         this.nome = nome;
         this.disciplina = disciplina;
         this.situacao = situacao;
     }
 
-    public Integer getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(Integer matricula) {
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -102,10 +92,18 @@ public class Aluno implements Serializable {
         this.situacao = situacao;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (matricula != null ? matricula.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -116,7 +114,7 @@ public class Aluno implements Serializable {
             return false;
         }
         Aluno other = (Aluno) object;
-        if ((this.matricula == null && other.matricula != null) || (this.matricula != null && !this.matricula.equals(other.matricula))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -124,7 +122,7 @@ public class Aluno implements Serializable {
 
     @Override
     public String toString() {
-        return "DAO.TblAluno[ matricula=" + matricula + " ]";
+        return "Controle.Aluno[ id=" + id + " ]";
     }
     
 }
